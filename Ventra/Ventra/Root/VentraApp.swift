@@ -2,7 +2,7 @@
 //  VentraApp.swift
 //  Ventra
 //
-//  Created by Kacper Marciszewski on 08/07/2025.
+//  Created by Kacper Marciszewski on 12/07/2025.
 //
 
 import SwiftUI
