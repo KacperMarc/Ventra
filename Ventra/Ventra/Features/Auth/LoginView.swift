@@ -11,7 +11,7 @@ import Foundation
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
-    //@EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -65,7 +65,7 @@ struct LoginView: View {
                     RegistrationView()
                         .navigationTitle("Create an account")
                 } label: {
-                    HStack(spacing: 2) {
+                    VStack(spacing: 2) {
                         Text("Don't have an account?")
                         Text("Sign Up")
                             .fontWeight(.bold)
