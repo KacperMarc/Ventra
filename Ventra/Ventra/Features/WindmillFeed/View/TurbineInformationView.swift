@@ -66,6 +66,7 @@ struct TurbineInformationView: View {
         }
         .background(Color.secondary.opacity(0.05))
         .cornerRadius(16)
+        
     }
 }
 
