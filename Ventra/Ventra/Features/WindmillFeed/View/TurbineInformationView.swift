@@ -9,10 +9,10 @@ import SwiftUI
 import Foundation
 
 struct TurbineInformationView: View {
-    
-    var turbine = WindTurbine(
-        name: "Wiatrak 1",
-        turbineId: "WT-001",
+    //initialisation within construction needed
+    var turbine = Turbine(
+        name: "Turbine 01",
+        turbineId: "TT-01",
         speed: 25.4,
         power: 1850,
         status: .running,
@@ -22,7 +22,50 @@ struct TurbineInformationView: View {
     )
     
     var body: some View {
-    Text("Hello, World!")
+        VStack(spacing: 16) {
+            // MARK: - header
+            HStack() {
+                
+                Image(systemName: "fan")
+                    .font(.system(size: 48))
+                    .foregroundColor(turbine.status.color)
+                    .frame(width: 80, height: 80)
+                    .background(turbine.status.color.opacity(0.1))
+                    .clipShape(Circle())
+                    .padding()
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(turbine.name)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Text(turbine.turbineId)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    
+                }
+                HStack {
+                    Image(systemName: turbine.status.systemImage)
+                        .foregroundColor(turbine.status.color)
+                    Text(turbine.status.displayName)
+                        .foregroundColor(turbine.status.color)
+                        .fontWeight(.medium)
+                }
+                .font(.subheadline)
+                .padding()
+               
+                
+            }
+            .background(Color.white)
+            .cornerRadius(16)
+            .padding()
+            
+            
+            // MARK: - Overview ? 
+            
+            
+        }
+        .background(Color.secondary.opacity(0.05))
+        .cornerRadius(16)
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUICore
 
-struct WindTurbine: Identifiable {
+struct Turbine: Identifiable {
     let id = UUID()
     let name: String
     let turbineId: String
@@ -27,9 +27,9 @@ enum TurbineStatus: String, CaseIterable {
     
     var displayName: String {
         switch self {
-        case .running: return "Aktywny"
-        case .idle: return "Bezczynny"
-        case .error: return "Błąd"
+        case .running: return "Running"
+        case .idle: return "Idle"
+        case .error: return "Error"
         }
     }
     
