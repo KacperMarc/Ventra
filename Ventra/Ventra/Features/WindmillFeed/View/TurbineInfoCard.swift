@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct TurbineInformationView: View {
+struct TurbineInfoCard: View {
     //initialisation within construction needed
     var turbine = Turbine(
         name: "Turbine 01",
@@ -29,10 +29,9 @@ struct TurbineInformationView: View {
                 Image(systemName: "fan")
                     .font(.system(size: 48))
                     .foregroundColor(turbine.status.color)
-                    .frame(width: 80, height: 80)
-                    .background(turbine.status.color.opacity(0.1))
+                    .frame(width: 90, height: 80)
                     .clipShape(Circle())
-                    .padding()
+                    
                 VStack(alignment: .leading, spacing: 4) {
                     Text(turbine.name)
                         .font(.title2)
@@ -55,21 +54,21 @@ struct TurbineInformationView: View {
                
                 
             }
-            .background(Color.white)
+            .background(Color.secondary.opacity(0.05))
             .cornerRadius(16)
             .padding()
             
             
-            // MARK: - Overview ? 
+           
             
             
         }
-        .background(Color.secondary.opacity(0.05))
+        .background(Color.white)
         .cornerRadius(16)
         
     }
 }
 
 #Preview {
-    TurbineInformationView()
+    TurbineInfoCard()
 }

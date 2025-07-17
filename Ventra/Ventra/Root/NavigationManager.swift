@@ -85,6 +85,7 @@ struct NavigationManager: View {
             .padding(.bottom, 24)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .background(Color.gray.opacity(0.15))
     }
 }
 #Preview {
