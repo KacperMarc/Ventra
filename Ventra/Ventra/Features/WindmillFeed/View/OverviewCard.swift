@@ -10,9 +10,9 @@ import SwiftUI
 struct OverviewCard: View {
     var body: some View {
         // MARK: - Overview
-        VStack{
+        VStack(alignment: .leading){
             Text("Overview")
-                .padding(.top)
+                .padding([.leading, .top])
                 .font(.headline)
                 .fontWeight(.semibold)
                 
@@ -62,9 +62,10 @@ struct OverviewCard: View {
                 
                 
             }
-            .padding()
+            .padding([.leading, .trailing, .bottom])
             
         }
+        .frame(maxWidth: .infinity)
         .background(Color.white)
         .cornerRadius(16)
         
