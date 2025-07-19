@@ -48,3 +48,6 @@ The app uses a modular MVVM structure:
 ---
 
 ## 📷 Showcase
+
+<img width="1206" height="2622" alt="simulator_screenshot_2B0B77EB-C2BA-4E2D-8CA7-1DA25511FDCA" src="https://github.com/user-attachments/assets/94f062f8-3f69-4783-919f-6c25f64b7797" />
+
