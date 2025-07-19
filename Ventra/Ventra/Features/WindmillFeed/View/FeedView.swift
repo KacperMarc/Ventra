@@ -94,10 +94,14 @@ struct FeedView: View {
                                 .fontWeight(.semibold)
                             VStack(alignment: .center, spacing: 0){
                                 ForEach(sampleTurbines) { turbine in
-                                            TurbineInfoCard(turbine: turbine)
-                                        .padding([.leading, .trailing, .bottom])
+                                    NavigationLink(destination: TurbineInfoView()) {
+                                        TurbineInfoCard(turbine: turbine)
+                                            .padding([.leading, .trailing, .bottom])
+                                    }
+                                    
 
-                                        }
+                                }
+                       
                                     
                             }
                             
@@ -126,6 +130,8 @@ struct FeedView: View {
            
 
         }
+        .foregroundStyle(.black)
+        
         
         
         
