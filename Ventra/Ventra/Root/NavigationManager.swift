@@ -74,7 +74,7 @@ struct NavigationManager: View {
                                        endPoint: .bottom
                                    )
                                )
-                               .frame(height: 140)
+                               .frame(height: 145)
                                .allowsHitTesting(false)
                 }
                 .ignoresSafeArea(.all)
@@ -100,7 +100,7 @@ struct NavigationManager: View {
                         } else {
                             Image(systemName: tab.systemImage)
                                 .font(.system(size: 20))
-                                .foregroundColor(.gray)
+                                .foregroundColor(.black)
                                 .onTapGesture {
                                     withAnimation {
                                         selectedTab = tab

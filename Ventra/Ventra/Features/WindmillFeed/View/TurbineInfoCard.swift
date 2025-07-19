@@ -20,7 +20,7 @@ struct TurbineInfoCard: View {
     var body: some View {
         
             // MARK: - header
-            HStack() {
+        HStack(alignment: .center) {
                 
                 Image(systemName: "fan")
                     .font(.system(size: 48))
@@ -28,6 +28,7 @@ struct TurbineInfoCard: View {
                     .frame(width: 90, height: 80)
                     .clipShape(Circle())
                     
+                
                 VStack(alignment: .leading, spacing: 4) {
                     Text(turbine.name)
                         .font(.title2)
@@ -38,6 +39,7 @@ struct TurbineInfoCard: View {
                         .foregroundColor(.secondary)
                     
                 }
+                Spacer()
                 HStack {
                     Image(systemName: turbine.status.systemImage)
                         .foregroundColor(turbine.status.color)
