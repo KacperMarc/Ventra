@@ -40,7 +40,7 @@ enum TabItem: String, CaseIterable, Identifiable {
 }
 
 struct TabBar: View {
-    @State private var selectedTab: TabItem = .feed
+    @Binding var selectedTab: TabItem
     
     var body: some View {
         VStack {
@@ -86,6 +86,14 @@ struct TabBar: View {
     }
 }
 
+private struct TabBarPreviewWrapper: View {
+    @State private var selectedTab: TabItem = .feed
+
+    var body: some View {
+        TabBar(selectedTab: $selectedTab)
+    }
+}
+
 #Preview {
-    TabBar()
+    TabBarPreviewWrapper()
 }

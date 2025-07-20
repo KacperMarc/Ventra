@@ -94,7 +94,8 @@ struct FeedView: View {
                                 .fontWeight(.semibold)
                             VStack(alignment: .center, spacing: 0){
                                 ForEach(sampleTurbines) { turbine in
-                                    NavigationLink(destination: TurbineInfoView()) {
+                                    NavigationLink(destination: TurbineInfoView()
+                                        .navigationTitle(turbine.name)) {
                                         TurbineInfoCard(turbine: turbine)
                                             .padding([.leading, .trailing, .bottom])
                                     }

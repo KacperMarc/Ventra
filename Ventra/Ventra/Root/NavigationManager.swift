@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct NavigationManager: View {
     //w przyszlosci zapisanie ostatniej karty w coredata
     @State private var selectedTab: TabItem = .feed
@@ -23,7 +24,7 @@ struct NavigationManager: View {
             .ignoresSafeArea(.all)
 
             // MARK: - Tabbar
-            TabBar()
+            TabBar(selectedTab: $selectedTab)
             
                 
         }

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TurbineInfoView: View {
     var body: some View {
-        Text("Turbine Info")
+        VStack {
+            Text("Turbine Info")
+        }
     }
 }
 
