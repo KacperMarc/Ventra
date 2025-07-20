@@ -30,12 +30,12 @@ Ventra centralizes key functionalities typically split across separate industria
 
 ## 🔧 Architecture & Navigation
 
-The app uses a modular MVVM structure:
+The app uses a **Modular Feature Architecture** structure:
 
 - **AppState** – central observable model tracking login state and JWT
-- **Router** – renders `LoginView` or `MainAppView` based on auth state
-- **TabView Navigation** – between turbines, map, stats, and notifications
-- **Reusable ViewModels** – e.g. `TurbineViewModel` and `MapViewModel`
+- **Router** – renders `Login View` or `Main App Views` based on auth state
+- **TabView based Navigation** – between turbines, map, stats, and notifications
+- **Reusable Components** – e.g. `Turbine` and `Farm Stats`
 
 ---
 
@@ -43,7 +43,6 @@ The app uses a modular MVVM structure:
 
 - **OPC UA Server** – generates simulated turbine data (wind speed, power, status)
 - **Node.js Backend** – JWT auth + REST API exposing turbine info
-- **MQTT-ready** – (planned) publish telemetry for external consumers or dashboards
 
 ---
 
