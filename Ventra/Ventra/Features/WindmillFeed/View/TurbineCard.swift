@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct TurbineInfoCard: View {
+struct TurbineCard: View {
     //initialisation within construction needed
     
     init(turbine: Turbine) {
@@ -48,7 +48,7 @@ struct TurbineInfoCard: View {
                         .fontWeight(.medium)
                 }
                 .font(.subheadline)
-                .padding()
+                .padding(.trailing)
                
                 
             }
@@ -67,5 +67,5 @@ struct TurbineInfoCard: View {
 
 
 #Preview {
-    TurbineInfoCard(turbine: sampleTurbines[0])
+    TurbineCard(turbine: sampleTurbines[0])
 }

@@ -96,7 +96,7 @@ struct FeedView: View {
                                 ForEach(sampleTurbines) { turbine in
                                     NavigationLink(destination: TurbineInfoView()
                                         .navigationTitle(turbine.name)) {
-                                        TurbineInfoCard(turbine: turbine)
+                                        TurbineCard(turbine: turbine)
                                             .padding([.leading, .trailing, .bottom])
                                     }
                                     

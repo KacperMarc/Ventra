@@ -18,19 +18,22 @@ struct OverviewCard: View {
                 
             
             
-            HStack(alignment: .center, spacing: 16) {
+            HStack(alignment: .center, spacing: 8) {
                 
                     
                 VStack {
                         Image(systemName: "bolt.square")
                             .foregroundStyle(.blue)
                         Text("Power")
-                        Text("1000 kW")
+                        .fontWeight(.semibold)
+                    Text("1000 kW").font(.caption)
                         
                     }
-                    .padding()
-                
-                    .background(Color.secondary.opacity(0.05))                .cornerRadius(16)
+                .padding([.top, .bottom])
+
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.secondary.opacity(0.05))
+                    .cornerRadius(16)
                 
                 
                 
@@ -38,11 +41,12 @@ struct OverviewCard: View {
                 VStack {
                     Image(systemName: "checkmark.rectangle.stack")
                         .foregroundStyle(.green)
-                    Text("Working")
-                    Text("3/5")
+                    Text("Working").fontWeight(.semibold)
+                    Text("3/5").font(.caption)
                 }
-                .padding()
-                
+                .padding([.top, .bottom])
+
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.secondary.opacity(0.05))
                 .cornerRadius(16)
                 
@@ -51,21 +55,23 @@ struct OverviewCard: View {
                 VStack {
                     Image(systemName: "wind")
                         .foregroundStyle(.cyan)
-                    Text("Efficency")
-                    Text("87%")
+                    Text("Efficency").fontWeight(.semibold)
+                    Text("87%").font(.caption)
                         
                 }
-                .padding()
-                
+                .padding([.top, .bottom], 4)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.secondary.opacity(0.05))
                 .cornerRadius(16)
                 
                 
             }
             .padding([.leading, .trailing, .bottom])
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
             
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(16)
         

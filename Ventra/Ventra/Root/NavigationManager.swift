@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct NavigationManager: View {
-    //w przyszlosci zapisanie ostatniej karty w coredata
+    //w przyszlosci zapisanie ostatniej karty w coredata?
     @State private var selectedTab: TabItem = .feed
 
     var body: some View {
