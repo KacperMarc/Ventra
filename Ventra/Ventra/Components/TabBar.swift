@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// można zrobić hashable żeby zapisywał w @AppStorage ostatnią otwarta kartę
 enum TabItem: String, CaseIterable, Identifiable {
     case feed = "fan.floor"
     case map = "map"
@@ -75,8 +75,8 @@ struct TabBar: View {
             
             .background(
                 RoundedRectangle(cornerRadius: 40)
-                    .fill(Color.white)
-                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 4)
+                    .fill(Color.white.opacity(0.7))
+                    .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 4)
             )
             .padding(.horizontal, 24)
             .padding(.bottom, 24)

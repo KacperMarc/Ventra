@@ -73,6 +73,7 @@ let sampleTurbines: [Turbine] = [
 
 struct FeedView: View {
     
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         
@@ -81,7 +82,7 @@ struct FeedView: View {
                 ScrollView {
                     VStack{
                         // MARK: - header
-                        
+                        // scrollując schowaj w dol tabbar i sfolduj overview
                         OverviewCard()
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding()
@@ -93,9 +94,20 @@ struct FeedView: View {
                                 .font(.headline)
                                 .fontWeight(.semibold)
                             VStack(alignment: .center, spacing: 0){
+                                // w przyszlosci potrzebne weak self jesli dane beda fetchowane
                                 ForEach(sampleTurbines) { turbine in
-                                    NavigationLink(destination: TurbineInfoView()
-                                        .navigationTitle(turbine.name)) {
+                                    NavigationLink(destination: TurbineInfoView(turbine: turbine).onAppear {
+                                        // animowanie wysuwania w dol i w gore
+                                        withAnimation {
+                                            appState.showTabBar = false
+                                        }
+                                    }
+                                    .onDisappear {
+                                        withAnimation {
+                                            appState.showTabBar = true
+                                        }
+                                    }
+                                    .navigationTitle(turbine.name)) {
                                         TurbineCard(turbine: turbine)
                                             .padding([.leading, .trailing, .bottom])
                                     }
@@ -107,6 +119,7 @@ struct FeedView: View {
                             }
                             
                         }
+                        
                         .background(Color.white)
                         .cornerRadius(16)
                         .padding([.leading, .trailing, .bottom])
@@ -117,7 +130,7 @@ struct FeedView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Turbine Feed")
@@ -132,6 +145,7 @@ struct FeedView: View {
 
         }
         .foregroundStyle(.black)
+        .tint(.black)
         
         
         

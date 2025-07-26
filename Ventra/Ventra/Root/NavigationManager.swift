@@ -9,8 +9,9 @@ import SwiftUI
 
 
 struct NavigationManager: View {
-    //w przyszlosci zapisanie ostatniej karty w coredata?
+    //w przyszlosci zapisanie ostatniej karty w @appstorage?
     @State private var selectedTab: TabItem = .feed
+    @EnvironmentObject var appState: AppState
 
     var body: some View {
         ZStack {
@@ -20,11 +21,16 @@ struct NavigationManager: View {
                 .ignoresSafeArea(.all)
             
             // MARK: - Blur
-            Blur()
-            .ignoresSafeArea(.all)
+           
 
             // MARK: - Tabbar
-            TabBar(selectedTab: $selectedTab)
+            
+            if appState.showTabBar {
+                Blur()
+                .ignoresSafeArea(.all)
+                TabBar(selectedTab: $selectedTab)
+            }
+            
             
                 
         }
@@ -33,6 +39,9 @@ struct NavigationManager: View {
         
     }
 }
+
+
+
 #Preview {
     NavigationManager()
 }

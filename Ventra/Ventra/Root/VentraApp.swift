@@ -11,11 +11,14 @@ import SwiftUI
 struct VentraApp: App {
     
     @StateObject var authVM = AuthViewModel()
+    @StateObject var appState = AppState()
     
     var body: some Scene {
         WindowGroup {
             PageManager()
                 .environmentObject(authVM)
+                .environmentObject(appState)
+                
         }
     }
 }

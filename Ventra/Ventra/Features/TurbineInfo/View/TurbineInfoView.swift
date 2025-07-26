@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct TurbineInfoView: View {
+    
+    var turbine: Turbine
+    
+    init(turbine: Turbine) {
+        self.turbine = turbine
+    }
+    
     var body: some View {
         VStack {
-            Text("Turbine Info")
+            VStack {
+                Text("\(turbine.turbineId)")
+                //główne informacje ze statusem i danymi
+                //scroll view horyzontalny z info o wydajnosci, utrzymanie i serwis oraz lokalizacji
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea(.all)
+        .background(Color.gray.opacity(0.15))
+
     }
 }
 
 #Preview {
-    TurbineInfoView()
+    TurbineInfoView(turbine: sampleTurbines[0])
 }
