@@ -108,6 +108,7 @@ struct FeedView: View {
                                         }
                                     }
                                     .navigationTitle(turbine.name)) {
+                                        // zaczyna robić sie problem z nazewnictwem i sie meisza, trzeba to zmienic/uporządkować
                                         TurbineCard(turbine: turbine)
                                             .padding([.leading, .trailing, .bottom])
                                     }

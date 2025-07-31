@@ -15,48 +15,55 @@ struct TurbineInfoCard: View {
         HStack(alignment: .center, spacing: 8) {
             
                 
-            VStack {
-                    Image(systemName: "bolt.square")
-                        .foregroundStyle(.blue)
-                    Text("Current output")
-                    .fontWeight(.semibold)
-                Text(String(turbine.power)).font(.caption)
-                    
-                }
-            .padding([.top, .bottom])
-
+            HStack {
+                VStack {
+                        Image(systemName: "bolt.square")
+                            .foregroundStyle(.blue)
+                        Text("Output")
+                        .fontWeight(.semibold)
+                    Text(String(turbine.power)).font(.caption)
+                        
+                    }
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.secondary.opacity(0.05))
                 .cornerRadius(16)
-            
-            
-            
-                
-            VStack {
-                Image(systemName: "checkmark.rectangle.stack")
-                    .foregroundStyle(.green)
-                Text("Efficency").fontWeight(.semibold)
-                Text(String(turbine.efficiency)).font(.caption)
-            }
-            .padding([.top, .bottom])
-            .background(Color.secondary.opacity(0.05))
-            .cornerRadius(16)
-            
                 
                 
-            VStack {
-                Image(systemName: "wind")
-                    .foregroundStyle(.cyan)
-                Text("Speed").fontWeight(.semibold)
-                Text(String(turbine.speed)).font(.caption)
+                
                     
+                VStack {
+                    Image(systemName: "checkmark.rectangle.stack")
+                        .foregroundStyle(.green)
+                    Text("Efficency").fontWeight(.semibold)
+                    Text(String(turbine.efficiency)).font(.caption)
+                }
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.secondary.opacity(0.05))
+                .cornerRadius(16)
+                
+                    
+                    
+                VStack {
+                    Image(systemName: "wind")
+                        .foregroundStyle(.cyan)
+                    Text("Speed").fontWeight(.semibold)
+                    Text(String(turbine.speed)).font(.caption)
+                        
+                }
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.secondary.opacity(0.05))
+                .cornerRadius(16)
             }
-            .padding([.top, .bottom], 4)
-            .background(Color.secondary.opacity(0.05))
-            .cornerRadius(16)
+            .frame(maxWidth: .infinity, alignment: .center)
             
             
         }
-        .padding([.leading, .trailing, .bottom])
+        
+        
+
     }
 }
 
@@ -95,15 +102,21 @@ struct TurbineInfoView: View {
                                 
                         }
                         TurbineInfoCard(turbine: turbine)
+                            .frame(maxHeight: 80)
+                            .padding(.top)
                         
                         
                     }.padding()
-                }.background(Color.white)
+                }
+                
+                .background(Color.white)
                     .cornerRadius(16)
+                    
                 //główne informacje ze statusem i danymi
-                //scroll view horyzontalny z info o wydajnosci, utrzymanie i serwis oraz lokalizacji
+                //scroll view horyzontalny z info o wydajnosci, utrzymanie i serwis oraz lokalizacji za pomoca enum i viewbuilder
             
         }
+        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
         .background(Color.gray.opacity(0.15))
