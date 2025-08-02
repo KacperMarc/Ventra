@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+struct TurbineDetailsView: View {
+    
+    @State var tab: InformationTabItem = .info
+    var body: some View {
+        VStack(spacing: 16) {
+            InformationTabBar(selectedTab: $tab)
+            TabView(selection: $tab) {
+                ForEach(InformationTabItem.allCases) { tab in
+                    tab.view
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .tag(tab)
+                }
+            }
+            
+            
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding()
+        .background(Color.white)
+            .cornerRadius(16)
+    }
+}
+
 struct TurbineInfoCard: View {
     
     var turbine: Turbine
@@ -21,7 +44,7 @@ struct TurbineInfoCard: View {
                             .foregroundStyle(.blue)
                         Text("Output")
                         .fontWeight(.semibold)
-                    Text(String(turbine.power)).font(.caption)
+                    Text("\(turbine.power) kW").font(.caption)
                         
                     }
                 .padding(.vertical, 8)
@@ -36,7 +59,7 @@ struct TurbineInfoCard: View {
                     Image(systemName: "checkmark.rectangle.stack")
                         .foregroundStyle(.green)
                     Text("Efficency").fontWeight(.semibold)
-                    Text(String(turbine.efficiency)).font(.caption)
+                    Text("\(turbine.efficiency)%").font(.caption)
                 }
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -76,7 +99,7 @@ struct TurbineInfoView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
            
                 VStack(alignment: .leading) {
                     VStack{
@@ -106,16 +129,19 @@ struct TurbineInfoView: View {
                             .padding(.top)
                         
                         
-                    }.padding()
+                    }
+                    
+                    .padding()
                 }
-                
                 .background(Color.white)
-                    .cornerRadius(16)
+                .cornerRadius(16)
+                
+                TurbineDetailsView()
                     
                 //główne informacje ze statusem i danymi
                 //scroll view horyzontalny z info o wydajnosci, utrzymanie i serwis oraz lokalizacji za pomoca enum i viewbuilder
             
-        }
+        }.shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(.all)
