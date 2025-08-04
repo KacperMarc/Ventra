@@ -16,15 +16,16 @@ struct TurbineDetailsView: View {
             TabView(selection: $tab) {
                 ForEach(InformationTabItem.allCases) { tab in
                     tab.view
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                        .frame(maxWidth: .infinity,maxHeight: .infinity)
                         .tag(tab)
                 }
-            }
+            }.tabViewStyle(.page(indexDisplayMode: .never))
             
             
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        .padding()
+        .padding(.top)
         .background(Color.white)
             .cornerRadius(16)
     }
@@ -124,10 +125,11 @@ struct TurbineInfoView: View {
                                 .font(.caption)
                                 
                         }
+                        /*
                         TurbineInfoCard(turbine: turbine)
                             .frame(maxHeight: 80)
                             .padding(.top)
-                        
+                        */
                         
                     }
                     
@@ -144,7 +146,6 @@ struct TurbineInfoView: View {
         }.shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea(.all)
         .background(Color.gray.opacity(0.15))
 
     }

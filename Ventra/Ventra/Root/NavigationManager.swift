@@ -14,6 +14,8 @@ struct NavigationManager: View {
     @EnvironmentObject var appState: AppState
 
     var body: some View {
+        
+        // group?
         ZStack {
             // MARK: - Selected View
             selectedTab.view

@@ -81,7 +81,7 @@ struct InformationTabBar: View {
             .background(
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Color.white.opacity(0.7))
-                    .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 2)
+                    .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
             )
             
             
