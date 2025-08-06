@@ -107,11 +107,15 @@ struct FeedView: View {
                                             appState.showTabBar = true
                                         }
                                     }
-                                    .navigationTitle(turbine.name)) {
-                                        // zaczyna robić sie problem z nazewnictwem i sie meisza, trzeba to zmienic/uporządkować
-                                        TurbineCard(turbine: turbine)
-                                            .padding([.leading, .trailing, .bottom])
-                                    }
+                                        .navigationTitle(turbine.name)) {
+                                            // zaczyna robić sie problem z nazewnictwem i sie meisza, trzeba to zmienic/uporządkować
+                                            TurbineCard(turbine: turbine)
+                                                .background(Color.white)
+                                                    .cornerRadius(16)
+                                                    .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
+                                                .padding([.leading, .trailing, .bottom])
+                                                
+                                        }
                                     
 
                                 }

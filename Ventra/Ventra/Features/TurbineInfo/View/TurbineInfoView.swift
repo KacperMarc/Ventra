@@ -31,65 +31,6 @@ struct TurbineDetailsView: View {
     }
 }
 
-struct TurbineInfoCard: View {
-    
-    var turbine: Turbine
-    
-    var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            
-                
-            HStack {
-                VStack {
-                        Image(systemName: "bolt.square")
-                            .foregroundStyle(.blue)
-                        Text("Output")
-                        .fontWeight(.semibold)
-                    Text("\(turbine.power) kW").font(.caption)
-                        
-                    }
-                .padding(.vertical, 8)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.secondary.opacity(0.05))
-                .cornerRadius(16)
-                
-                
-                
-                    
-                VStack {
-                    Image(systemName: "checkmark.rectangle.stack")
-                        .foregroundStyle(.green)
-                    Text("Efficency").fontWeight(.semibold)
-                    Text("\(turbine.efficiency)%").font(.caption)
-                }
-                .padding(.vertical, 8)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.secondary.opacity(0.05))
-                .cornerRadius(16)
-                
-                    
-                    
-                VStack {
-                    Image(systemName: "wind")
-                        .foregroundStyle(.cyan)
-                    Text("Speed").fontWeight(.semibold)
-                    Text(String(turbine.speed)).font(.caption)
-                        
-                }
-                .padding(.vertical, 8)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.secondary.opacity(0.05))
-                .cornerRadius(16)
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-            
-            
-        }
-        
-        
-
-    }
-}
 
 struct TurbineInfoView: View {
     
@@ -137,7 +78,7 @@ struct TurbineInfoView: View {
                 }
                 .background(Color.white)
                 .cornerRadius(16)
-                
+                //to gówno musi sie rozsuwać do samego dołu żeby cały ekran był scrollowalny a nie tylko wnętrze z listą
                 TurbineDetailsView()
                     
                 //główne informacje ze statusem i danymi

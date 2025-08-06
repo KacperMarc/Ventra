@@ -52,8 +52,11 @@ struct TurbineCard: View {
                
                 
             }
+        
             .frame(maxWidth: .infinity)
+        
             .background(Color.secondary.opacity(0.05))
+        
             .cornerRadius(16)
             
             
