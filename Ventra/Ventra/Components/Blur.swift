@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Blur: View {
     var body: some View {
+        // blur jest do poprawy ponieważ nie jest to przezroczysty blur, taki liquid tylko biały i jednak na szarym tle wyglada to słabo
         VStack {
             Spacer()
             Rectangle()
