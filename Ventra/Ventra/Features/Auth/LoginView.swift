@@ -20,8 +20,8 @@ struct LoginView: View {
                     .resizable()
                     .frame(width: 160, height: 160)
                     .padding(.vertical, 30)
-                // MARK: - fields
                 
+                // MARK: - fields
                 VStack(spacing: 20){
                     TextInput(text: $email, title: "Email Address", placeholder: "name@example.com")
                         .textInputAutocapitalization(.never)
@@ -30,37 +30,30 @@ struct LoginView: View {
                 }
                 .padding(.horizontal)
                 
-                
                 // MARK: - sign in button
-                
                 Button{
                     Task {
-
                         //try await viewModel.signIn(withEmail: email, password: password)
                     }
-                }label: {
+                } label: {
                     HStack {
                         Text("Sign In")
                             .fontWeight(.semibold)
                         Image(systemName: "arrow.right")
-                        
                     }
                 }
                 .disabled(!formIsValid)
                 .opacity(formIsValid ? 1 : 0.5)
                 .padding(.horizontal)
-                    .frame(width: UIScreen.main.bounds.width - 32, height: 40)
-                    .foregroundStyle(.white)
-                    .background(Color.ventraGreenDark)
-                    .cornerRadius(10)
-                    .padding(.top)
-                    .padding()
-                
-               
-                
+                .frame(width: UIScreen.main.bounds.width - 32, height: 40)
+                .foregroundStyle(.white)
+                .background(Color.ventraGreenDark)
+                .cornerRadius(10)
+                .padding(.top)
+                .padding()
+        
                 // MARK: - sign up button
                 Spacer()
-                
                 NavigationLink {
                     RegistrationView()
                         .navigationTitle("Create an account")
@@ -72,10 +65,9 @@ struct LoginView: View {
                     }
                     .foregroundStyle(Color.ventraGreenLight)
                 }
-                
             }
         }
-        }
+    }
 }
 // MARK: - Login Form Validation
 extension LoginView: AutheticationFormProtocol {

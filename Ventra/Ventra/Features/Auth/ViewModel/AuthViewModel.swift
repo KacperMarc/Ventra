@@ -11,5 +11,5 @@ import Foundation
 class AuthViewModel: ObservableObject {
     
     @Published var userSession: Bool = true
-  
+    
 }

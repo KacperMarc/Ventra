@@ -18,7 +18,6 @@ struct VentraApp: App {
             PageManager()
                 .environmentObject(authVM)
                 .environmentObject(appState)
-                
         }
     }
 }

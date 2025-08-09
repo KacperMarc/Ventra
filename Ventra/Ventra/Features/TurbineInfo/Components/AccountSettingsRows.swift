@@ -11,15 +11,12 @@ struct AccountSettingsRows: View {
     let image: String
     let title: String
     let content: String
-    //let tintColor: Color
-    
     
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: image)
                 .imageScale(.small)
                 .font(.title)
-                
             Text(title)
                 .font(.subheadline)
                 .foregroundStyle(.black)
@@ -27,6 +24,5 @@ struct AccountSettingsRows: View {
             Text(content)
                 .fontWeight(.bold)
         }
-        
     }
 }

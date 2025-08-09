@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-// można zrobić hashable żeby zapisywał w @AppStorage ostatnią otwarta kartę
+
 enum TabItem: String, CaseIterable, Identifiable {
     case feed = "fan.floor"
     case map = "map"
     case stats = "chart.line.uptrend.xyaxis"
-
+    
     var id: String { rawValue }
-
+    
     var title: String {
         switch self {
         case .feed: return "Turbine Feed"
@@ -21,11 +21,11 @@ enum TabItem: String, CaseIterable, Identifiable {
         case .stats: return "Statistics"
         }
     }
-
+    
     var systemImage: String {
         rawValue
     }
-
+    
     @ViewBuilder
     var view: some View {
         switch self {
@@ -72,7 +72,6 @@ struct TabBar: View {
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
-            
             .background(
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Color.white.opacity(0.7))
@@ -81,14 +80,13 @@ struct TabBar: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 24)
             .padding(.top, 8)
-            
         }
     }
 }
 
 private struct TabBarPreviewWrapper: View {
     @State private var selectedTab: TabItem = .feed
-
+    
     var body: some View {
         TabBar(selectedTab: $selectedTab)
     }

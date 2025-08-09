@@ -13,9 +13,9 @@ enum InformationTabItem: String, CaseIterable, Identifiable {
     case maintenance = "wrench.and.screwdriver"
     case location = "mappin.circle"
     
-
+    
     var id: String { rawValue }
-
+    
     var title: String {
         switch self {
         case .info: return "Overview"
@@ -24,11 +24,11 @@ enum InformationTabItem: String, CaseIterable, Identifiable {
         case .location: return "Location"
         }
     }
-
+    
     var systemImage: String {
         rawValue
     }
-
+    
     @ViewBuilder
     var view: some View {
         switch self {
@@ -49,7 +49,6 @@ struct InformationTabBar: View {
     
     var body: some View {
         VStack {
-           
             HStack(spacing: 8) {
                 ForEach(InformationTabItem.allCases) { tab in
                     if selectedTab == tab {
@@ -77,21 +76,18 @@ struct InformationTabBar: View {
                     }
                 }
             }
-            
             .background(
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Color.white.opacity(0.7))
                     .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
             )
-            
-            
         }
     }
 }
 
 private struct InformationTabBarPreviewWrapper: View {
     @State private var selectedTab: InformationTabItem = .info
-
+    
     var body: some View {
         InformationTabBar(selectedTab: $selectedTab)
     }

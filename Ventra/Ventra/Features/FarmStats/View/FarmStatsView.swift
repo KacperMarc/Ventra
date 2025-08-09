@@ -21,26 +21,24 @@ struct FarmStatsView: View {
                     GroupBox("Turbine status") {
                         
                     }
-                    // przemyślenie zmiany też na miesięczne statystyki, roczne
+                    // consider also presenting monthly/annual stats
                     GroupBox("Daily production") {
                         
                     }
-                    
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Turbine Feed")
+                    Text("Farm Statistics")
                         .fontWeight(.bold)
                         .font(.system(size: 28, weight: .bold))
-                    }
                 }
-                .background(Color.gray.opacity(0.15))
             }
-            .tint(.black)
-        
+            .background(Color.gray.opacity(0.15))
+        }
+        .tint(.black)
     }
 }
 

@@ -9,40 +9,26 @@ import SwiftUI
 
 
 struct NavigationManager: View {
-    //w przyszlosci zapisanie ostatniej karty w @appstorage?
+    //in the future saving last opened tab in @appstorage
     @State private var selectedTab: TabItem = .feed
     @EnvironmentObject var appState: AppState
 
     var body: some View {
-        
         // group?
         ZStack {
-            // MARK: - Selected View
             selectedTab.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
-            
-            // MARK: - Blur
-           
-
-            // MARK: - Tabbar
-            
             if appState.showTabBar {
                 Blur()
                 .ignoresSafeArea(.all)
                 TabBar(selectedTab: $selectedTab)
             }
-            
-            
-                
         }
         .ignoresSafeArea(.all)
         .background(Color.gray.opacity(0.15))
-        
     }
 }
-
-
 
 #Preview {
     NavigationManager()

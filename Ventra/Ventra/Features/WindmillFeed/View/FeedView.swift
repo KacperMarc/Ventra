@@ -7,6 +7,76 @@
 
 import SwiftUI
 
+struct FeedView: View {
+    
+    @EnvironmentObject var appState: AppState
+    
+    var body: some View {
+        NavigationStack {
+            VStack() {
+                ScrollView {
+                    VStack{
+                        // MARK: - header
+                        // while scrolling hide tabbar and fold overview card
+                        OverviewCard()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding()
+                        VStack(alignment: .leading){
+                            Text("Turbines")
+                                .padding([.leading, .top])
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                            VStack(alignment: .center, spacing: 0){
+                                // weak self in the future when the data was fetched
+                                ForEach(sampleTurbines) { turbine in
+                                    NavigationLink(destination: TurbineInfoView(turbine: turbine).onAppear {
+                                        // upside-down animation needed
+                                        withAnimation {
+                                            appState.showTabBar = false
+                                        }
+                                    }
+                                    .onDisappear {
+                                        withAnimation {
+                                            appState.showTabBar = true
+                                        }
+                                    }
+                                    .navigationTitle(turbine.name)) {
+                                    // files/classes name convetion needs to be reconsidered
+                                    TurbineCard(turbine: turbine)
+                                        .background(Color.white)
+                                        .cornerRadius(16)
+                                        .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
+                                        .padding([.leading, .trailing, .bottom])
+                                    }
+                                }
+                            }
+                        }
+                        .background(Color.white)
+                        .cornerRadius(16)
+                        .padding([.leading, .trailing, .bottom])
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Turbine Feed")
+                        .fontWeight(.bold)
+                        .font(.system(size: 28, weight: .bold))
+                }
+            }
+            .background(Color.gray.opacity(0.15))
+        }
+        .foregroundStyle(.black)
+        .tint(.black)
+    }
+}
+
+#Preview {
+    FeedView()
+}
+
 let sampleTurbines: [Turbine] = [
     Turbine(
         name: "Turbine A",
@@ -70,97 +140,3 @@ let sampleTurbines: [Turbine] = [
     )
 ]
 
-
-struct FeedView: View {
-    
-    @EnvironmentObject var appState: AppState
-    
-    var body: some View {
-        
-        NavigationStack {
-            VStack() {
-                ScrollView {
-                    VStack{
-                        // MARK: - header
-                        // scrollując schowaj w dol tabbar i sfolduj overview
-                        OverviewCard()
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding()
-                        
-                        
-                        VStack(alignment: .leading){
-                            Text("Turbines")
-                                .padding([.leading, .top])
-                                .font(.headline)
-                                .fontWeight(.semibold)
-                            VStack(alignment: .center, spacing: 0){
-                                // w przyszlosci potrzebne weak self jesli dane beda fetchowane
-                                ForEach(sampleTurbines) { turbine in
-                                    NavigationLink(destination: TurbineInfoView(turbine: turbine).onAppear {
-                                        // animowanie wysuwania w dol i w gore
-                                        withAnimation {
-                                            appState.showTabBar = false
-                                        }
-                                    }
-                                    .onDisappear {
-                                        withAnimation {
-                                            appState.showTabBar = true
-                                        }
-                                    }
-                                        .navigationTitle(turbine.name)) {
-                                            // zaczyna robić sie problem z nazewnictwem i sie meisza, trzeba to zmienic/uporządkować
-                                            TurbineCard(turbine: turbine)
-                                                .background(Color.white)
-                                                    .cornerRadius(16)
-                                                    .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
-                                                .padding([.leading, .trailing, .bottom])
-                                                
-                                        }
-                                    
-
-                                }
-                       
-                                    
-                            }
-                            
-                        }
-                        
-                        .background(Color.white)
-                        .cornerRadius(16)
-                        .padding([.leading, .trailing, .bottom])
-                        
-                        
-                    }
-                }
-                
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("Turbine Feed")
-                        .fontWeight(.bold)
-                        .font(.system(size: 28, weight: .bold))
-                }
-            }
-            .background(Color.gray.opacity(0.15))
-            
-            
-           
-
-        }
-        .foregroundStyle(.black)
-        .tint(.black)
-        
-        
-        
-        
-        
-        
-    }
-    
-}
-
-#Preview {
-    FeedView()
-}
