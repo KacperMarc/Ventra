@@ -60,14 +60,14 @@ struct InformationTabBar: View {
                         .padding(.horizontal, 8)
                         .padding(.vertical, 8)
                         .background(Color.ventraGreenDark)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .clipShape(Capsule())
                         .transition(.scale)
                     } else {
                         Image(systemName: tab.systemImage)
                             .font(.system(size: 12))
                             .padding(.horizontal, 8)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                             .onTapGesture {
                                 withAnimation {
                                     selectedTab = tab

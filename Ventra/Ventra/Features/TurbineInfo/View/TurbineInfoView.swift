@@ -48,9 +48,9 @@ struct TurbineInfoView: View {
                         Spacer()
                         HStack{
                             Image(systemName: turbine.status.systemImage)
-                                .foregroundColor(turbine.status.color)
+                                .foregroundStyle(turbine.status.color)
                             Text(turbine.status.displayName)
-                                .foregroundColor(turbine.status.color).font(.headline)
+                                .foregroundStyle(turbine.status.color).font(.headline)
                         }.padding(.all, 4)
                             .background(turbine.status.color.opacity(0.15)).clipShape(Capsule())
                     }

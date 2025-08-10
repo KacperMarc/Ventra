@@ -72,7 +72,7 @@ struct LoginView: View {
 // MARK: - Login Form Validation
 extension LoginView: AutheticationFormProtocol {
     var formIsValid: Bool {
-        return !email.isEmpty && email.contains("@") && !password.isEmpty && password.count >= 6
+        !email.isEmpty && email.contains("@") && !password.isEmpty && password.count >= 6
     }
 }
 

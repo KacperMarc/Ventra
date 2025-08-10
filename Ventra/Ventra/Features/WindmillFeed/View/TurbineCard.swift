@@ -20,7 +20,7 @@ struct TurbineCard: View {
         HStack(alignment: .center) {
             Image(systemName: "fan")
                 .font(.system(size: 48))
-                .foregroundColor(turbine.status.color)
+                .foregroundStyle(turbine.status.color)
                 .frame(width: 90, height: 80)
                 .clipShape(Circle())
             VStack(alignment: .leading, spacing: 4) {
@@ -29,14 +29,14 @@ struct TurbineCard: View {
                     .fontWeight(.bold)
                 Text(turbine.turbineId)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             Spacer()
             HStack {
                 Image(systemName: turbine.status.systemImage)
-                    .foregroundColor(turbine.status.color)
+                    .foregroundStyle(turbine.status.color)
                 Text(turbine.status.displayName)
-                    .foregroundColor(turbine.status.color)
+                    .foregroundStyle(turbine.status.color)
                     .fontWeight(.medium)
             }
             .font(.subheadline)

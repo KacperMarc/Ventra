@@ -28,11 +28,11 @@ struct RegistrationView: View {
                     if !password.isEmpty && !confirmPassword.isEmpty {
                         if password != confirmPassword {
                             Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundColor(.red)
+                                .foregroundStyle(.red)
                                 .imageScale(.large)
                         } else {
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                                 .imageScale(.large)
                         }
                     }
