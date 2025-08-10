@@ -30,15 +30,10 @@ struct FeedView: View {
                                 // weak self in the future when the data was fetched
                                 ForEach(sampleTurbines) { turbine in
                                     NavigationLink(destination: TurbineInfoView(turbine: turbine).onAppear {
-                                        // upside-down animation needed
-                                        withAnimation {
-                                            appState.showTabBar = false
-                                        }
+                                        appState.showTabBar = false
                                     }
                                     .onDisappear {
-                                        withAnimation {
-                                            appState.showTabBar = true
-                                        }
+                                        appState.showTabBar = true
                                     }
                                     .navigationTitle(turbine.name)) {
                                     // files/classes name convetion needs to be reconsidered

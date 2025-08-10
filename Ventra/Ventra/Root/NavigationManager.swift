@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NavigationManager: View {
     //in the future saving last opened tab in @appstorage
     @State private var selectedTab: TabItem = .feed
@@ -19,11 +18,13 @@ struct NavigationManager: View {
             selectedTab.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea(.all)
-            if appState.showTabBar {
+            ZStack {
                 Blur()
-                .ignoresSafeArea(.all)
+                    .ignoresSafeArea(.all)
                 TabBar(selectedTab: $selectedTab)
             }
+            .offset(y: appState.showTabBar ? 0 : 200)
+            .animation(.easeOut(duration: 1), value: appState.showTabBar)
         }
         .ignoresSafeArea(.all)
         .background(Color.gray.opacity(0.15))
