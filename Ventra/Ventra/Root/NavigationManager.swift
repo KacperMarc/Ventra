@@ -13,7 +13,6 @@ struct NavigationManager: View {
     @EnvironmentObject var appState: AppState
 
     var body: some View {
-        // group?
         ZStack {
             selectedTab.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

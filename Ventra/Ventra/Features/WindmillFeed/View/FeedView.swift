@@ -21,6 +21,8 @@ struct FeedView: View {
                         OverviewCard()
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding()
+                        
+                        // MARK: - feed
                         VStack(alignment: .leading){
                             Text("Turbines")
                                 .padding([.leading, .top])
@@ -29,20 +31,22 @@ struct FeedView: View {
                             VStack(alignment: .center, spacing: 0){
                                 // weak self in the future when the data was fetched
                                 ForEach(sampleTurbines) { turbine in
-                                    NavigationLink(destination: TurbineInfoView(turbine: turbine).onAppear {
-                                        appState.showTabBar = false
+                                    NavigationLink(value: turbine) {
+                                        TurbineCard(turbine: turbine)
+                                            .onAppear {
+                                                appState.showTabBar = true
+                                            }
+                                            .onDisappear {
+                                                appState.showTabBar = false
+                                            }
+                                            .background(Color.white)
+                                            .cornerRadius(16)
+                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
+                                            .padding([.leading, .trailing, .bottom])
                                     }
-                                    .onDisappear {
-                                        appState.showTabBar = true
-                                    }
-                                    .navigationTitle(turbine.name)) {
-                                    // files/classes name convetion needs to be reconsidered
-                                    TurbineCard(turbine: turbine)
-                                        .background(Color.white)
-                                        .cornerRadius(16)
-                                        .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
-                                        .padding([.leading, .trailing, .bottom])
-                                    }
+                                }
+                                .navigationDestination(for: Turbine.self) { turbine in
+                                    TurbineInfoView(turbine: turbine)
                                 }
                             }
                         }

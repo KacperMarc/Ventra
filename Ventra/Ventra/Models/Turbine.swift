@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUICore
 
-struct Turbine: Identifiable {
+struct Turbine: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let turbineId: String
