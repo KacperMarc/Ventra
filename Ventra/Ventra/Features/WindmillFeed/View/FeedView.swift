@@ -33,12 +33,6 @@ struct FeedView: View {
                                 ForEach(sampleTurbines) { turbine in
                                     NavigationLink(value: turbine) {
                                         TurbineCard(turbine: turbine)
-                                            .onAppear {
-                                                appState.showTabBar = true
-                                            }
-                                            .onDisappear {
-                                                appState.showTabBar = false
-                                            }
                                             .background(Color.white)
                                             .cornerRadius(16)
                                             .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
@@ -47,6 +41,8 @@ struct FeedView: View {
                                 }
                                 .navigationDestination(for: Turbine.self) { turbine in
                                     TurbineInfoView(turbine: turbine)
+                                        .onAppear { appState.showTabBar = false }
+                                        .onDisappear { appState.showTabBar = true }
                                 }
                             }
                         }
