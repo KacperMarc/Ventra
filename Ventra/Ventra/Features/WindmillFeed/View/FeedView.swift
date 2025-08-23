@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct FeedView: View {
-    
     @EnvironmentObject var appState: AppState
+    @Namespace private var headerAnim
+    @State var changeHeaderCard = false
     
     var body: some View {
         NavigationStack {
             VStack() {
-                ScrollView {
-                    VStack{
+                ScrollView(.vertical) {
+                    VStack {
                         // MARK: - header
                         // while scrolling hide tabbar and fold overview card
                         OverviewCard()
@@ -50,7 +51,17 @@ struct FeedView: View {
                         .cornerRadius(16)
                         .padding([.leading, .trailing, .bottom])
                     }
-                }
+                }.onScrollGeometryChange(for: CGFloat.self, of: { geometry in
+                    geometry.contentOffset.y
+                }, action: { oldValue, newValue in
+                    if newValue <= 0 {
+                        appState.showTabBar = true
+                        changeHeaderCard = false
+                    } else if abs(newValue - oldValue) > 20 {
+                        appState.showTabBar = newValue < oldValue
+                        changeHeaderCard = true
+                    }
+                })
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
@@ -122,6 +133,156 @@ let sampleTurbines: [Turbine] = [
         efficiency: 78,
         latitude: 53.130,
         longitude: 18.460
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine A",
+        turbineId: "A001",
+        speed: 12.5,
+        power: 1500,
+        status: .running,
+        efficiency: 90,
+        latitude: 53.123,
+        longitude: 18.456
+    ),
+    Turbine(
+        name: "Turbine B",
+        turbineId: "B002",
+        speed: 10.3,
+        power: 1300,
+        status: .error,
+        efficiency: 78,
+        latitude: 53.130,
+        longitude: 18.460
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
+    ),
+    Turbine(
+        name: "Turbine C",
+        turbineId: "C003",
+        speed: 8.9,
+        power: 900,
+        status: .idle,
+        efficiency: 65,
+        latitude: 53.140,
+        longitude: 18.470
     ),
     Turbine(
         name: "Turbine C",
