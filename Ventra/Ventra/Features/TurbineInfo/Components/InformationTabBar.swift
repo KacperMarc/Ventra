@@ -33,13 +33,13 @@ enum InformationTabItem: String, CaseIterable, Identifiable {
     var view: some View {
         switch self {
         case .info:
-            InformationCard()
+            TurbineInformationCard()
         case .stats:
-            StatsCard()
+            TurbineStatsCard()
         case .maintenance:
-            MaintenanceCard()
+            TurbineMaintenanceCard()
         case .location:
-            LocationCard()
+            TurbineLocationCard()
         }
     }
 }

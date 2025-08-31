@@ -11,21 +11,12 @@ struct FarmStatsView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading) {
-                    GroupBox("Energy production") {
-                        
-                    }
-                    GroupBox("Turbine efficiency") {
-                        
-                    }
-                    GroupBox("Turbine status") {
-                        
-                    }
-                    // consider also presenting monthly/annual stats
-                    GroupBox("Daily production") {
-                        
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                    ForEach(0..<7) { _ in
+                        StatsCard()
                     }
                 }
+                .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)

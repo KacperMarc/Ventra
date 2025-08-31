@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+struct FoldedOverviewCard: View {
+    var body: some View {
+        VStack {
+            Text("Folded Overview Card")
+        }.background(Color.blue)
+    }
+}
+
 struct FeedView: View {
     @EnvironmentObject var appState: AppState
-    @Namespace private var headerAnim
     @State var changeHeaderCard = false
     
     var body: some View {
@@ -17,11 +24,15 @@ struct FeedView: View {
             VStack() {
                 ScrollView(.vertical) {
                     VStack {
-                        // MARK: - header
-                        // while scrolling hide tabbar and fold overview card
-                        OverviewCard()
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding()
+                        // MARK: - overview card
+                        // jak scrollujesz to ta druga karta musi się pojawiać na scrollview u góry wiec musi byc zstck
+                        // albo modifier który wtedy pokazuje na górze w toolbarze info który się rozsunie
+                        Group {
+                            if !changeHeaderCard { OverviewCard().transition(.opacity.combined(with: .slide)) }
+                            else { FoldedOverviewCard().transition(.opacity.combined(with: .slide)) }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding()
                         
                         // MARK: - feed
                         VStack(alignment: .leading){
@@ -57,9 +68,11 @@ struct FeedView: View {
                     if newValue <= 0 {
                         appState.showTabBar = true
                         changeHeaderCard = false
+                        print(newValue)
                     } else if abs(newValue - oldValue) > 20 {
                         appState.showTabBar = newValue < oldValue
                         changeHeaderCard = true
+                        print(newValue)
                     }
                 })
             }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InformationCard: View {
+struct TurbineInformationCard: View {
     var body: some View {
         HStack {
             List {
@@ -40,5 +40,5 @@ struct InformationCard: View {
 }
 
 #Preview {
-    InformationCard()
+    TurbineInformationCard()
 }
