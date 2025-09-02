@@ -14,5 +14,5 @@ struct TurbineStatsCard: View {
 }
 
 #Preview {
-    StatsCard()
+    TurbineStatsCard()
 }

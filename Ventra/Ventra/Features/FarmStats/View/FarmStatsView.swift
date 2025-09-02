@@ -12,8 +12,8 @@ struct FarmStatsView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                    ForEach(0..<7) { _ in
-                        StatsCard()
+                    ForEach(StatsCardType.allCases, id: \.self) { type in
+                        StatsCard(cardType: type)
                     }
                 }
                 .padding()
