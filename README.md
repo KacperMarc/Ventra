@@ -51,7 +51,8 @@ The app uses a **Modular Feature Architecture** structure:
 
 <img width="490" height="988" alt="image" src="https://github.com/user-attachments/assets/824722e6-0d0c-4a51-8b14-0c575a72af0a" />
 <img width="488" height="992" alt="image" src="https://github.com/user-attachments/assets/ee7ee5b0-ac4e-4cb8-8300-4dc6fac480b8" />
-<img width="491" height="987" alt="image" src="https://github.com/user-attachments/assets/36cdadb3-c844-4e8f-879a-556cf7783900" />
+<img width="492" height="990" alt="image" src="https://github.com/user-attachments/assets/4139a234-bb20-4ec4-b980-a924904f03dd" />
+
 
 
 
