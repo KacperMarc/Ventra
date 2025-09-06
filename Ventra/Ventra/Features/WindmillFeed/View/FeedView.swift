@@ -47,7 +47,7 @@ struct FeedView: View {
                                         TurbineCard(turbine: turbine)
                                             .background(Color.white)
                                             .cornerRadius(16)
-                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 4, y: 4)
+                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 4, y: 8)
                                             .padding([.leading, .trailing, .bottom])
                                     }
                                 }
