@@ -40,14 +40,14 @@ struct FeedView: View {
                                 .padding([.leading, .top])
                                 .font(.headline)
                                 .fontWeight(.semibold)
-                            VStack(alignment: .center, spacing: 0){
+                            VStack(alignment: .center){
                                 // weak self in the future when the data was fetched
                                 ForEach(sampleTurbines) { turbine in
                                     NavigationLink(value: turbine) {
                                         TurbineCard(turbine: turbine)
                                             .background(Color.white)
                                             .cornerRadius(16)
-                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
+                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 4, y: 4)
                                             .padding([.leading, .trailing, .bottom])
                                     }
                                 }

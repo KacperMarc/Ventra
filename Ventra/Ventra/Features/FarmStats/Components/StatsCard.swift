@@ -36,6 +36,18 @@ enum StatsCardType: String, CaseIterable, Identifiable {
         }
     }
     
+    var data: String {
+        switch self {
+        case .dailyProduction: return "3600"
+        case .dailyRevenue: return "1800"
+        case .averageEfficiency: return "87"
+        case .peakProduction: return "4200"
+        case .workingTurbines: return "3/8"
+        case .monthlyProduction: return "72000"
+        case .averageWindSpeed: return "45"
+        }
+    }
+    
     var affix: String {
         switch self {
         case .dailyProduction, .monthlyProduction, .peakProduction: return "MW"
@@ -54,12 +66,14 @@ struct StatsCard: View {
     var body: some View {
         VStack {
             Image(systemName: cardType.icon)
-                .foregroundStyle(Color.green)
+                .font(.system(size: 18))
+                .foregroundStyle(Color.ventraGreenDark)
             HStack {
                 Text("123")
                     .font(.largeTitle)
+                    .fontWeight(.bold)
                 Text(cardType.affix)
-                    .font(.subheadline)
+                    .font(.headline)
             }
             Text(cardType.title)
                 .font(.subheadline)

@@ -26,9 +26,9 @@ struct OverviewCard: View {
                     }
                     VStack {
                         Image(systemName: "checkmark.rectangle.stack")
-                            .foregroundStyle(.green)
+                            .foregroundStyle(Color.ventraGreenDark)
                         Text("Working").fontWeight(.semibold)
-                        Text("3/5").font(.caption)
+                        Text("3/8").font(.caption)
                     }
                     VStack {
                         Image(systemName: "wind")
@@ -39,7 +39,7 @@ struct OverviewCard: View {
                 }
                 .padding([.top, .bottom])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.secondary.opacity(0.05))
+                .background(Color.secondary.opacity(0.10))
                 .cornerRadius(16)
                 
             }

@@ -43,7 +43,7 @@ struct TurbineCard: View {
             .padding(.trailing)
         }
         .frame(maxWidth: .infinity)
-        .background(Color.secondary.opacity(0.05))
+        .background(Color.secondary.opacity(0.10))
         .cornerRadius(16)
     }
 }
