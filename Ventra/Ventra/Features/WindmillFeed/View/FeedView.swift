@@ -47,7 +47,7 @@ struct FeedView: View {
                                         TurbineCard(turbine: turbine)
                                             .background(Color.white)
                                             .cornerRadius(16)
-                                            .shadow(color: .black.opacity(0.15), radius: 5, x: 4, y: 8)
+                                            .shadow(color: .black.opacity(0.15), radius: 5, x: -4, y: 4)
                                             .padding([.leading, .trailing, .bottom])
                                     }
                                 }
@@ -77,7 +77,7 @@ struct FeedView: View {
                 })
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 4)
+            .shadow(color: .black.opacity(0.3), radius: 10, x: -4, y: 4)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("Turbine Feed")

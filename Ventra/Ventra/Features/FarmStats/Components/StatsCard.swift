@@ -69,7 +69,7 @@ struct StatsCard: View {
                 .font(.system(size: 18))
                 .foregroundStyle(Color.ventraGreenDark)
             HStack {
-                Text("123")
+                Text(cardType.data)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Text(cardType.affix)
@@ -78,10 +78,11 @@ struct StatsCard: View {
             Text(cardType.title)
                 .font(.subheadline)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
-        .frame(width: 180, height: 140)
         .background(Color.white)
         .cornerRadius(16)
         .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+        .aspectRatio(9/7, contentMode: .fit)
     }
 }

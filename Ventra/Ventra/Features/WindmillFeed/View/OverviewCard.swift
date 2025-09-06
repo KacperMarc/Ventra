@@ -39,7 +39,7 @@ struct OverviewCard: View {
                 }
                 .padding([.top, .bottom])
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.secondary.opacity(0.10))
+                .background(Color.gray.opacity(0.10))
                 .cornerRadius(16)
                 
             }
