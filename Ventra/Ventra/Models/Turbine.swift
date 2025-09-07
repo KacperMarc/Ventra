@@ -8,19 +8,8 @@
 import Foundation
 import SwiftUICore
 
-struct Turbine: Identifiable, Hashable {
-    let id = UUID()
-    let name: String
-    let turbineId: String
-    let speed: Double
-    let power: Int
-    let status: TurbineStatus
-    let efficiency: Int
-    let latitude: Float
-    let longitude: Float
-}
-
 enum TurbineStatus: String, CaseIterable {
+    //bedzie trzeba zunifikowac status tak aby na podstawie zwracanego z api np 1 albo 2 albo 3 bylo wiadomo co to faktycznie jest
     case running = "running"
     case idle = "idle"
     case error = "error"
@@ -48,4 +37,16 @@ enum TurbineStatus: String, CaseIterable {
         case .error: return "exclamationmark.triangle.fill"
         }
     }
+}
+
+struct Turbine: Identifiable, Hashable {
+    let id = UUID()
+    let name: String
+    let turbineId: String
+    let speed: Double
+    let power: Int
+    let status: TurbineStatus
+    let efficiency: Int
+    let latitude: Float
+    let longitude: Float
 }
